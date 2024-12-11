@@ -95,9 +95,12 @@ def register(message):
                         firestore_service.add_booking(new_booking)
                         bot.send_message(chat_id=message.chat.id, text='Бронирование успешно!',reply_markup=keyboard.main_keyboard())
                     else:
-                        bot.send_message(chat_id=message.chat.id, text='На это время не осталось мест!',reply_markup=keyboard.main_keyboard())
+                        bot.send_message(chat_id=message.chat.id, text='На это время не осталось мест!')
+                        bot.send_message(chat_id=message.chat.id, text='Выбери другое время',reply_markup=keyboard.time_keyboard())
+                        bot.register_next_step_handler(message,get_time)
                 else:
-                    bot.send_message(chat_id=message.chat.id, text='Ваш аккаунт уже забронировал время',reply_markup=keyboard.main_keyboard())
+                    bot.send_message(chat_id=message.chat.id, text='Ваш аккаунт уже забронировал время')
+                    bot.send_message(chat_id=message.chat.id, text='Посмотреть список бронирований /bookinglist\nOтменить бронь /withdraw',reply_markup=keyboard.main_keyboard())
             except:
                 bot.send_message(chat_id=message.chat.id, text='Что-то пошло не так... \nПопробуй снова!',reply_markup=keyboard.main_keyboard())
         
@@ -227,9 +230,12 @@ def send_answers(message):
                         firestore_service.add_booking(new_booking)
                         bot.send_message(chat_id=message.chat.id, text='Бронирование успешно!',reply_markup=keyboard.main_keyboard())
                     else:
-                        bot.send_message(chat_id=message.chat.id, text='На это время не осталось мест!',reply_markup=keyboard.main_keyboard())
+                        bot.send_message(chat_id=message.chat.id, text='На это время не осталось мест!')
+                        bot.send_message(chat_id=message.chat.id, text='Выбери другое время',reply_markup=keyboard.time_keyboard())
+                        bot.register_next_step_handler(message,get_time)
                 else:
-                    bot.send_message(chat_id=message.chat.id, text='Ваш аккаунт уже забронировал время',reply_markup=keyboard.main_keyboard())
+                    bot.send_message(chat_id=message.chat.id, text='Ваш аккаунт уже забронировал время')
+                    bot.send_message(chat_id=message.chat.id, text='Посмотреть список бронирований /bookinglist\nOтменить бронь /withdraw',reply_markup=keyboard.main_keyboard())
             except:
                 bot.send_message(chat_id=message.chat.id, text='Что-то пошло не так... \nПопробуй снова!',reply_markup=keyboard.main_keyboard())
         #Начало
