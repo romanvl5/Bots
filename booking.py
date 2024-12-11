@@ -30,5 +30,5 @@ class Booking:
         return self
 
     def __str__(self):
-        return f"{self.id} - {self.datetime.strftime('%Y-%m-%d %H:%M:%S')}"  
+        return f"{self.id} - {self.datetime.strftime('%d-%m-%Y %H:%M')}"  
         # return self.id + " - " + str(self.time_slot)

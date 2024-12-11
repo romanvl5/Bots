@@ -22,8 +22,8 @@ def date_keyboard():
     itembtns.clear()
     markup = types.ReplyKeyboardMarkup(row_width=4,one_time_keyboard=True)
 
-    #запись на 12 дней
-    for i in range(0,12):
+    #запись на 12 дней (c завтрашнего)
+    for i in range(1,13):
         dates.append((now + timedelta(days=i)))
 
     #Список дат
